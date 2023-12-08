@@ -10,7 +10,7 @@ import {
   serverTimestamp,
   getDoc,
 } from "firebase/firestore";
-import { db } from "../firebase";
+import { appDB } from "../firebase";
 import { AuthContext } from "../context/AuthContext";
 const Search = () => {
   const [username, setUsername] = useState("");
@@ -21,7 +21,7 @@ const Search = () => {
 
   const handleSearch = async () => {
     const q = query(
-      collection(db, "users"),
+      collection(appDB, "users"),
       where("displayName", "==", username)
     );
 

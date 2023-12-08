@@ -77,7 +77,7 @@
 }
 
 .home {
-  background-color: #a7bcff;
+  background-image: url("https://i.pinimg.com/736x/76/ed/57/76ed57e4a21865259aca7c15b245d121.jpg");
   height: 100vh;
   display: flex;
   align-items: center;
@@ -93,13 +93,13 @@
 
     .sidebar {
       flex: 1;
-      background-color: #3e3c61;
+      background-color: #141324;
       position: relative;
 
       .navbar {
         display: flex;
         align-items: center;
-        background-color: #2f2d52;
+        background-color: #141324;
         height: 50px;
         padding: 10px;
         justify-content: space-between;
@@ -175,7 +175,7 @@
           }
           p {
             font-size: 14px;
-            color: lightgray;
+            color: rgb(126, 121, 121);
           }
         }
       }
@@ -185,7 +185,7 @@
 
       .chatInfo {
         height: 50px;
-        background-color: #5d5b8d;
+        background-color: #202035;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -204,7 +204,7 @@
       }
 
       .messages {
-        background-color: #ddddf7;
+        background-color: #8d8d8e;
         padding: 10px;
         height: calc(100% - 160px);
         overflow: scroll;
@@ -262,7 +262,7 @@
 
       .input {
         height: 50px;
-        background-color: white;
+        background-color: rgb(63, 62, 62);
         padding: 10px;
         display: flex;
         align-items: center;

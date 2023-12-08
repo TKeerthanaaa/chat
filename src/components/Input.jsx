@@ -10,7 +10,7 @@ import {
   Timestamp,
   updateDoc,
 } from "firebase/firestore";
-import { db, storage } from "../firebase";
+import { appDB, storage } from "../firebase";
 import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
@@ -33,7 +33,7 @@ const Input = () => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            await updateDoc(doc(db, "chats", data.chatId), {
+            await updateDoc(doc(appDB, "chats", data.chatId), {
               messages: arrayUnion({
                 id: uuid(),
                 text,
@@ -46,7 +46,7 @@ const Input = () => {
         }
       );
     } else {
-      await updateDoc(doc(db, "chats", data.chatId), {
+      await updateDoc(doc(appDB, "chats", data.chatId), {
         messages: arrayUnion({
           id: uuid(),
           text,
@@ -56,14 +56,14 @@ const Input = () => {
       });
     }
 
-    await updateDoc(doc(db, "userChats", currentUser.uid), {
+    await updateDoc(doc(appDB, "userChats", currentUser.uid), {
       [data.chatId + ".lastMessage"]: {
         text,
       },
       [data.chatId + ".date"]: serverTimestamp(),
     });
 
-    await updateDoc(doc(db, "userChats", data.user.uid), {
+    await updateDoc(doc(appDB, "userChats", data.user.uid), {
       [data.chatId + ".lastMessage"]: {
         text,
       },
